@@ -1,0 +1,63 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Strava.cz",
+        "description": "Enter the diner's credentials. The integration only reads the menu, it never places orders.",
+        "data": {
+          "username": "Username",
+          "password": "Password",
+          "canteen_number": "Canteen number"
+        },
+        "data_description": {
+          "canteen_number": "The four-digit canteen number you use when signing in to app.strava.cz."
+        }
+      },
+      "reauth_confirm": {
+        "title": "Re-authenticate",
+        "description": "The password for {username} is no longer valid. Enter the current password.",
+        "data": {
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to Strava.cz.",
+      "invalid_auth": "Invalid username, password or canteen number.",
+      "unknown": "Unexpected error."
+    },
+    "abort": {
+      "already_configured": "This diner is already configured.",
+      "reauth_successful": "Re-authentication was successful."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Menu display",
+        "data": {
+          "summary_mode": "Event title",
+          "show_no_school": "Show days without cooking"
+        },
+        "data_description": {
+          "summary_mode": "What appears as the calendar event title. The full daily menu is always in the description."
+        }
+      }
+    }
+  },
+  "selector": {
+    "summary_mode": {
+      "options": {
+        "ordered": "Ordered meal",
+        "all": "All meals of the day"
+      }
+    }
+  },
+  "entity": {
+    "calendar": {
+      "lunch": {
+        "name": "Lunches"
+      }
+    }
+  }
+}

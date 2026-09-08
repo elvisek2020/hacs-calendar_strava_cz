@@ -1,0 +1,11 @@
+[tool.ruff]
+target-version = "py313"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["F", "E", "W", "I", "UP", "B", "SIM"]
+
+[tool.ruff.lint.isort]
+# Balíček integrace se jmenuje stejně jako knihovna `strava_cz` z PyPI.
+# Bez tohoto by isort knihovnu považoval za lokální modul.
+known-third-party = ["strava_cz"]

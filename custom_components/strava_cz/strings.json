@@ -1,0 +1,63 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Strava.cz",
+        "description": "Zadej přihlašovací údaje strávníka. Integrace pouze čte jídelníček, nic neobjednává.",
+        "data": {
+          "username": "Uživatelské jméno",
+          "password": "Heslo",
+          "canteen_number": "Číslo jídelny"
+        },
+        "data_description": {
+          "canteen_number": "Čtyřmístné číslo jídelny, které zadáváš při přihlášení na app.strava.cz."
+        }
+      },
+      "reauth_confirm": {
+        "title": "Znovu přihlásit",
+        "description": "Heslo strávníka {username} už není platné. Zadej aktuální heslo.",
+        "data": {
+          "password": "Heslo"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Nepodařilo se spojit se Strava.cz.",
+      "invalid_auth": "Neplatné jméno, heslo nebo číslo jídelny.",
+      "unknown": "Neočekávaná chyba."
+    },
+    "abort": {
+      "already_configured": "Tento strávník je už přidaný.",
+      "reauth_successful": "Přihlášení bylo obnoveno."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Zobrazení jídelníčku",
+        "data": {
+          "summary_mode": "Název události",
+          "show_no_school": "Zobrazovat dny, kdy se nevaří"
+        },
+        "data_description": {
+          "summary_mode": "Co se ukáže jako název události v kalendáři. Celý jídelníček dne je vždy v popisu."
+        }
+      }
+    }
+  },
+  "selector": {
+    "summary_mode": {
+      "options": {
+        "ordered": "Objednané jídlo",
+        "all": "Všechna jídla dne"
+      }
+    }
+  },
+  "entity": {
+    "calendar": {
+      "lunch": {
+        "name": "Obědy"
+      }
+    }
+  }
+}
