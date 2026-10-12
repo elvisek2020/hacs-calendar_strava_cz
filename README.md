@@ -1,11 +1,16 @@
-# Strava.cz pro Home Assistant
+# Strava.cz
+
+[![HACS Custom](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/hacs/integration)
+[![Release](https://img.shields.io/github/v/release/elvisek2020/hacs-calendar_strava_cz)](https://github.com/elvisek2020/hacs-calendar_strava_cz/releases)
+[![Validate](https://github.com/elvisek2020/hacs-calendar_strava_cz/actions/workflows/validate.yml/badge.svg)](https://github.com/elvisek2020/hacs-calendar_strava_cz/actions/workflows/validate.yml)
+[![Licence](https://img.shields.io/github/license/elvisek2020/hacs-calendar_strava_cz)](LICENSE)
+
+[![Otevřít v HACS](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=elvisek2020&repository=hacs-calendar_strava_cz&category=integration)
 
 Neoficiální integrace, která vystaví **jídelníček** ze školní jídelny na
 [Strava.cz](https://app.strava.cz) jako kalendářovou entitu v Home Assistantu.
 
 Integrace pouze čte. **Nic neobjednává ani neruší.**
-
-## Co to umí
 
 - Jedna entita `calendar.<jmeno>_obedy` na strávníka.
 - Každý den jídelníčku je jedna **celodenní** událost.
@@ -15,21 +20,36 @@ Integrace pouze čte. **Nic neobjednává ani neruší.**
 - Aktualizace každé 2 hodiny.
 - Více dětí = více instancí integrace.
 
-## Instalace přes HACS
+## Předpoklady a závislosti
 
-1. HACS → menu (⋮) → **Custom repositories**.
-2. URL: `https://github.com/elvisek2020/hacs-calendar_strava_cz`, kategorie **Integration**.
-3. Nainstalovat verzi `1.0.0` (nebo novější) a restartovat Home Assistant.
-4. **Nastavení → Zařízení a služby → Přidat integraci → Strava.cz**.
-5. Zadat uživatelské jméno, heslo a číslo jídelny (to čtyřmístné, které
-   zadáváš při přihlášení na `app.strava.cz`).
+- Home Assistant 2025.8.0 nebo novější.
+- Účet strávníka na [app.strava.cz](https://app.strava.cz) a číslo jídelny.
+- Home Assistant si sám doinstaluje knihovnu
+  [`strava-cz`](https://pypi.org/project/strava-cz/).
 
-Vyžaduje Home Assistant 2025.8.0 nebo novější. Home Assistant si sám doinstaluje
-knihovnu [`strava-cz`](https://pypi.org/project/strava-cz/).
+## Instalace
 
-## Nastavení
+### HACS (doporučeno)
 
-**Nastavení → Zařízení a služby → Strava.cz → Konfigurovat**
+1. HACS → tři tečky vpravo nahoře → **Custom repositories**
+2. Vlož URL `https://github.com/elvisek2020/hacs-calendar_strava_cz`, kategorie **Integration**
+3. Nainstaluj **Strava.cz**
+4. Restartuj Home Assistant a přidej integraci v **Nastavení → Zařízení a služby → Přidat integraci**.
+
+HACS nabízí aktualizace z GitHub releases.
+
+### Ručně
+
+Zkopíruj `custom_components/strava_cz` do `/config/custom_components/` a restartuj Home Assistant.
+
+## Konfigurace
+
+**Nastavení → Zařízení a služby → Přidat integraci → Strava.cz**
+
+Zadej uživatelské jméno, heslo a číslo jídelny (to čtyřmístné, které zadáváš
+při přihlášení na `app.strava.cz`).
+
+Volby jsou v **Nastavení → Zařízení a služby → Strava.cz → Konfigurovat**:
 
 | Volba | Význam |
 | --- | --- |
@@ -62,6 +82,26 @@ skončí až timeoutem. Integrace proto posílá `CZ`.
 - Integrace nemá žádnou cestu k objednávání. Metody knihovny pro objednávky
   se v kódu vůbec nepoužívají.
 
+## Vývoj
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements_test.txt ruff
+.venv/bin/python -m pytest
+.venv/bin/ruff check . && .venv/bin/ruff format --check .
+```
+
+Testy pokrývají převod jídelníčku na události a nepotřebují instalaci
+Home Assistanta ani přístup k jídelně. GitHub Actions spouští `hassfest`,
+validaci HACS, Ruff a Pytest.
+
+## Vydání verze
+
+1. Zvedni verzi v `custom_components/strava_cz/manifest.json` (SemVer).
+2. Doplň sekci `## vX.Y.Z — RRRR-MM-DD` do `CHANGELOG.md`.
+3. Commit `Release vX.Y.Z: …`, `git tag vX.Y.Z`, push commitu i tagu.
+4. GitHub Actions vytvoří release s textem z CHANGELOG a HACS nabídne aktualizaci.
+
 ## Známá omezení
 
 - Strava.cz se v každé jídelně chová trochu jinak (jiný počet chodů, jiné
@@ -71,18 +111,11 @@ skončí až timeoutem. Integrace proto posílá `CZ`.
   o několik týdnů dopředu.
 - Ověřeno proti reálné jídelně (polévka a dvě varianty obědů).
 
-## Vývoj
+## Autor
 
-```bash
-python3 -m venv .venv
-.venv/bin/pip install -r requirements_test.txt
-.venv/bin/python -m pytest
-```
-
-Testy pokrývají převod jídelníčku na události a nepotřebují instalaci
-Home Assistanta ani přístup k jídelně.
-
-## Poznámka
+**[elvisek2020](https://github.com/elvisek2020)** — vzniklo pro rodinný školní
+dashboard v Home Assistantu, kde jsou rozvrhy, obědy a kroužky v jedné kartě.
+Licence MIT.
 
 Projekt není nijak spojený s provozovatelem Strava.cz. Používáš ho na vlastní
 odpovědnost.

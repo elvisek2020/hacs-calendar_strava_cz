@@ -33,9 +33,7 @@ def monday_with_order() -> object:
 
 
 def test_summary_shows_ordered_meal() -> None:
-    days = parser.build_lunch_days(
-        [monday_with_order()], parser.SUMMARY_MODE_ORDERED
-    )
+    days = parser.build_lunch_days([monday_with_order()], parser.SUMMARY_MODE_ORDERED)
 
     assert days[0].summary == "Bramborové knedlíky se špenátem"
 
@@ -57,9 +55,7 @@ def test_summary_can_list_all_main_meals() -> None:
 
 
 def test_description_contains_whole_menu_with_soup() -> None:
-    days = parser.build_lunch_days(
-        [monday_with_order()], parser.SUMMARY_MODE_ORDERED
-    )
+    days = parser.build_lunch_days([monday_with_order()], parser.SUMMARY_MODE_ORDERED)
 
     assert days[0].description == (
         "· Polévka: Zeleninová\n"

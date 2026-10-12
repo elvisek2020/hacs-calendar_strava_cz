@@ -75,9 +75,7 @@ def _description(day: Day) -> str | None:
     return "\n".join(lines) or None
 
 
-def build_lunch_days(
-    days: Sequence[Day], summary_mode: str
-) -> list[LunchDay]:
+def build_lunch_days(days: Sequence[Day], summary_mode: str) -> list[LunchDay]:
     """Převede dny jídelníčku na celodenní záznamy řazené podle data."""
     lunch_days = [
         LunchDay(

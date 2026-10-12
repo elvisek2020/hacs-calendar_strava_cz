@@ -52,9 +52,7 @@ class StravaCoordinator(DataUpdateCoordinator[list[LunchDay]]):
     def show_no_school(self) -> bool:
         """Vrátí, jestli se mají zobrazovat dny, kdy se nevaří."""
         assert self.config_entry is not None
-        return self.config_entry.options.get(
-            OPT_SHOW_NO_SCHOOL, DEFAULT_SHOW_NO_SCHOOL
-        )
+        return self.config_entry.options.get(OPT_SHOW_NO_SCHOOL, DEFAULT_SHOW_NO_SCHOOL)
 
     async def _async_update_data(self) -> list[LunchDay]:
         """Načte jídelníček v executoru, protože knihovna je synchronní."""
