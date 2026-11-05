@@ -1,4 +1,4 @@
-# Strava.cz
+# Kalendář – jídelníček – Strava.cz (EK)
 
 [![HACS Custom](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/hacs/integration)
 [![Release](https://img.shields.io/github/v/release/elvisek2020/hacs-calendar_strava_cz)](https://github.com/elvisek2020/hacs-calendar_strava_cz/releases)
@@ -33,7 +33,7 @@ Integrace pouze čte. **Nic neobjednává ani neruší.**
 
 1. HACS → tři tečky vpravo nahoře → **Custom repositories**
 2. Vlož URL `https://github.com/elvisek2020/hacs-calendar_strava_cz`, kategorie **Integration**
-3. Nainstaluj **Strava.cz**
+3. Nainstaluj **Kalendář – jídelníček – Strava.cz (EK)**
 4. Restartuj Home Assistant a přidej integraci v **Nastavení → Zařízení a služby → Přidat integraci**.
 
 HACS nabízí aktualizace z GitHub releases.
@@ -44,12 +44,12 @@ Zkopíruj `custom_components/strava_cz` do `/config/custom_components/` a restar
 
 ## Konfigurace
 
-**Nastavení → Zařízení a služby → Přidat integraci → Strava.cz**
+**Nastavení → Zařízení a služby → Přidat integraci → Kalendář – jídelníček – Strava.cz (EK)**
 
 Zadej uživatelské jméno, heslo a číslo jídelny (to čtyřmístné, které zadáváš
 při přihlášení na `app.strava.cz`).
 
-Volby jsou v **Nastavení → Zařízení a služby → Strava.cz → Konfigurovat**:
+Volby jsou v **Nastavení → Zařízení a služby → Kalendář – jídelníček – Strava.cz (EK) → Konfigurovat**:
 
 | Volba | Význam |
 | --- | --- |
